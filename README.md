@@ -2,7 +2,12 @@
 
 Locuplot is a python application to generate graph based on locust statistics reporting.
 
-Non exhaustive commands:
+## Local setup
+
+Make sure to install [poetry](https://python-poetry.org/) first.
+
+
+Non exhaustive custom commands:
 
 | Command                 | Description                                     |
 |-------------------------|-------------------------------------------------|

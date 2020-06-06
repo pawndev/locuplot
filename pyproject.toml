@@ -6,14 +6,17 @@ authors = ["pawndev <coquelet.c@gmail.com>"]
 
 [tool.poetry.urls]
 "Bug Tracker" = "https://github.com/pawndev/locuplot/issues"
+issues = "https://github.com/pawndev/locuplot/issues"
 
 [tool.poetry.scripts]
+locuplot = "locuplot.main:main"
 
 [tool.poetry.dependencies]
 python = "^3.8"
 pandas = "^1.0.4"
 matplotlib = "^3.2.1"
 numpy = "^1.18.5"
+logzero = "^1.5.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"

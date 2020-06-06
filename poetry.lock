@@ -88,7 +88,7 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 version = "7.1.2"
 
 [[package]]
-category = "dev"
+category = "main"
 description = "Cross-platform colored terminal text."
 marker = "python_version >= \"3.3\" and sys_platform == \"win32\" or sys_platform == \"win32\""
 name = "colorama"
@@ -448,6 +448,17 @@ msgpack = ">=0.6.2"
 psutil = ">=5.6.7"
 pyzmq = ">=16.0.2"
 requests = ">=2.9.1"
+
+[[package]]
+category = "main"
+description = "Robust and effective logging for Python 2 and 3"
+name = "logzero"
+optional = false
+python-versions = "*"
+version = "1.5.0"
+
+[package.dependencies]
+colorama = "*"
 
 [[package]]
 category = "dev"
@@ -1021,7 +1032,7 @@ test = ["coverage (>=5.0.3)", "zope.event", "zope.testing"]
 testing = ["coverage (>=5.0.3)", "zope.event", "zope.testing"]
 
 [metadata]
-content-hash = "7560835de6422c7161ea039655d4ab06d134efdad48c43307be52454990b0823"
+content-hash = "250022d35265e999619d12ed6529f03008adae47e59d3095cb765aa07d6ec07f"
 python-versions = "^3.8"
 
 [metadata.files]
@@ -1282,6 +1293,10 @@ kiwisolver = [
 locust = [
     {file = "locust-1.0.3-py3-none-any.whl", hash = "sha256:b80deea54f470d8fd61a8f610d87041ce908924fe3fca09700376de49aa89195"},
     {file = "locust-1.0.3.tar.gz", hash = "sha256:7c2e850a84275b6f7c5ad4a8abde3488df94c08d3b52e619d9c71cc6b8c853cb"},
+]
+logzero = [
+    {file = "logzero-1.5.0-py2.py3-none-any.whl", hash = "sha256:818072e4fcb53a3f6fb4114a92f920e1135fe6f47bffd9dc2b6c4d10eedacf27"},
+    {file = "logzero-1.5.0.tar.gz", hash = "sha256:34fa1e2e436dfa9f37e5ff8750e932bafe0c5abbb42e1f669e4cf5ce1f179142"},
 ]
 markupsafe = [
     {file = "MarkupSafe-1.1.1-cp27-cp27m-macosx_10_6_intel.whl", hash = "sha256:09027a7803a62ca78792ad89403b1b7a73a01c8cb65909cd876f7fcebd79b161"},

@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "locuplot"
 version = "0.1.0"
-description = ""
+description = "Python application for generating plot from locust statistics csv"
 authors = ["pawndev <coquelet.c@gmail.com>"]
 
 [tool.poetry.urls]
@@ -29,4 +29,3 @@ jupyter = "jupyter notebook --notebook-dir=example/ --port 9999"
 [build-system]
 requires = ["poetry>=0.12"]
 build-backend = "poetry.masonry.api"
-

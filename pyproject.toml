@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "locuplot"
-version = "0.1.2"
+version = "0.1.3"
 description = "Python application for generating plot from locust statistics csv"
 authors = ["pawndev <coquelet.c@gmail.com>"]
 readme = "README.md"

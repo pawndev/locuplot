@@ -7,6 +7,24 @@ TODO: When we will release locuplot to the pip registry, complete this section.
 TODO: Reference how to install the application.
 TODO: Reference command line arguments
 
+### Install
+Locuplot is available on pypi registry, you can:
+```bash
+pip install locuplot
+```
+
+### Usage
+
+There is a help command `locuplot -h`
+
+To use this project, there is 3 arguments to give.
+`locuplot -d example\stats -p sample -e dist`
+
+Arguments list:
+- -d | --directory => Specify the folder where the locust stats are.
+- -p | --prefix    => The prefix you gave to locust for generated stats
+- -e | --export    => The export directory you want png and html generated files (default to `./dist`)
+
 ## Local setup
 
 Make sure to install [poetry](https://python-poetry.org/) first. Then, make a `poetry install` in the project

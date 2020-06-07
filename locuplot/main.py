@@ -4,8 +4,6 @@ from .argument_parser import parse_args, validate_args, format_args
 from .locust.stats import Stats
 from .helpers.fs import create_dir
 from .helpers.plot import save_plot
-import matplotlib.pyplot as plt
-import mpld3
 import jinja2
 
 
@@ -22,9 +20,9 @@ def main():
         failures_filepath=formatted_args.failures_filepath
     )
     failures = stats.failures.get_failures_list()
-    d3_graph =[]
     history_figures = stats.history.generate_all_plot()
     percentiles = stats.history.generate_all_percentile_tables()
+    global_stats = stats.generic.get_reporting()
     for history_task in history_figures:
         # mpld3.save_html(history_task.get('req_per_sec_figure'), os.path.join(formatted_args.export_dir, 'req_per_second', '{}.html'.format(history_task.get('name'))))
         # mpld3.save_html(history_task.get('response_times_figure'), os.path.join(formatted_args.export_dir, 'response_times', '{}.html'.format(history_task.get('name'))))
@@ -43,7 +41,8 @@ def main():
     data = {
         "history_figures": history_figures,
         "percentiles": percentiles,
-        "failures": failures
+        "failures": failures,
+        "global_stats": global_stats
     }
     main_dir = os.path.dirname(os.path.realpath(__file__))
     template_loader = jinja2.FileSystemLoader(searchpath=os.path.join(main_dir, 'templates'))

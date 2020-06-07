@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Locust reporting</title>
+    <meta name="description" content="description here">
+    <meta name="keywords" content="keywords,here">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link href="https://unpkg.com/tailwindcss@next/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100 font-sans leading-normal tracking-normal">
+        <!--Container-->
+    <div class="container w-full mx-auto pt-20">
+
+        <div class="w-full px-4 md:px-0 md:mt-8 mb-16 text-gray-800 leading-normal">
+
+            {% for item in data.history_figures %}
+            <div class="flex flex-row flex-wrap flex-grow mt-2">
+                <div class="w-full">
+                    <!--Graph Card-->
+                    <div class="bg-white border rounded shadow">
+                        <div class="border-b p-3">
+                            <h5 class="font-bold uppercase text-gray-600 text-center">{{ item.name }} - Req/sec</h5>
+                        </div>
+                        <div class="p-5">
+                            {{item.req_per_sec_d3|safe}}
+                        </div>
+                    </div>
+                    <!--/Graph Card-->
+                </div>
+                <div class="w-full">
+                    <!--Graph Card-->
+                    <div class="bg-white border rounded shadow">
+                        <div class="border-b p-3">
+                            <h5 class="font-bold uppercase text-gray-600 text-center">{{ item.name }} - Response time</h5>
+                        </div>
+                        <div class="p-5">
+                            {{item.response_times_d3|safe}}
+                        </div>
+                    </div>
+                    <!--/Graph Card-->
+                </div>
+            </div>
+            {% endfor %}
+
+
+            {% for item in data.percentiles %}
+            <div class="flex flex-row flex-wrap flex-grow mt-2 justify-center">
+                <div class="w-1/2">
+                    <!--Table Card-->
+                    <div class="bg-white border rounded shadow">
+                        <div class="border-b p-3">
+                            <h5 class="font-bold uppercase text-gray-600">{{ item.name }} - %-ile</h5>
+                        </div>
+                        <div class="p-5">
+                            <table class="w-full p-5 text-gray-700">
+                                <thead>
+                                    <tr>
+                                        <th class="text-left text-blue-900">Key</th>
+                                        <th class="text-left text-blue-900">Value</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    {% for key, value in item.percentile_table.items() %}
+                                    <tr>
+                                        <td class="border px-4 py-2">{{ key }}</td>
+                                        <td class="border px-4 py-2">{{ value }}</td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+
+
+                        </div>
+                    </div>
+                    <!--/table Card-->
+                </div>
+            </div>
+            {% endfor %}
+
+            {% for name, failures in data.failures.items() %}
+            <div class="flex flex-row flex-wrap flex-grow mt-2 justify-center">
+                <div class="w-1/2">
+                    <!--Table Card-->
+                    <div class="bg-white border rounded shadow">
+                        <div class="border-b p-3">
+                            <h5 class="font-bold uppercase text-gray-600">{{ name }} - failures</h5>
+                        </div>
+                        <div class="p-5">
+                            <table class="w-full p-5 text-gray-700">
+                                <thead>
+                                    <tr>
+                                        <th class="text-left text-blue-900">Error</th>
+                                        <th class="text-left text-blue-900">Occurences</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    {% for error in failures %}
+                                    <tr>
+                                        <td class="border px-4 py-2">{{ error.name }}</td>
+                                        <td class="border px-4 py-2">{{ error.occurrences }}</td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!--/table Card-->
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+
+
+    </div>
+    <!--/container-->
+
+    <footer class="bg-white border-t border-gray-400 shadow">
+        <div class="container max-w-md mx-auto flex py-4">
+          <p class="">Made with ♥ by locuplot</p>
+        </div>
+    </footer>
+</body>
+</html>

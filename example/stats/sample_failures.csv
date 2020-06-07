@@ -1,3 +1,4 @@
 "Method","Name","Error","Occurrences"
 "GET","GetKnownIssues","503 Server Error: Service Temporarily Unavailable for url: GetKnownIssues",1639
 "GET","GetHome","503 Server Error: Service Temporarily Unavailable for url: GetHome",792
+"GET","GetHome","429 Rate Limit",2

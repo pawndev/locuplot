@@ -3,9 +3,6 @@
 Locuplot is a python application to generate graph based on locust statistics reporting.
 
 ## Usage
-TODO: When we will release locuplot to the pip registry, complete this section.
-TODO: Reference how to install the application.
-TODO: Reference command line arguments
 
 ### Install
 Locuplot is available on pypi registry, you can:

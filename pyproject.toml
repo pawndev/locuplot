@@ -3,7 +3,11 @@ name = "locuplot"
 version = "0.1.3"
 description = "Python application for generating plot from locust statistics csv"
 authors = ["pawndev <coquelet.c@gmail.com>"]
+maintainers = ["pawndev <coquelet.c@gmail.com>"]
 readme = "README.md"
+repository = "https://github.com/pawndev/locuplot"
+keywords = [ "locust", "plot", "graph" ]
+license = "MIT"
 
 [tool.poetry.urls]
 "Bug Tracker" = "https://github.com/pawndev/locuplot/issues"

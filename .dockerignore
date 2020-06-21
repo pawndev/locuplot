@@ -1,0 +1,4 @@
+dist/
+locuplot.egg-info
+.gitignore
+README.md
